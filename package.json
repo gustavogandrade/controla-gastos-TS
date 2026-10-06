@@ -4,7 +4,8 @@
   "description": "Controle de Gastos do Mês em TypeScript",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "vitest run",
+    "dev": "tsx src/index.ts"
   },
   "repository": {
     "type": "git",
