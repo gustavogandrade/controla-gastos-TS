@@ -20,7 +20,16 @@ export function totalGasto(despesas: Despesa[]): number {
 }
 
 export function maiorDespesa(despesas: Despesa[]): Despesa | undefined {
-  if (despesas.length === 0) return undefined;
-  
-  return despesas.reduce((maior, d) => (d.valor > maior.valor ? d : maior), despesas[0]);
+  const primeira = despesas[0];
+  if (!primeira) return undefined;
+
+  let maior = primeira;
+  for (let i = 1; i < despesas.length; i++) {
+    const d = despesas[i];
+    if (d && d.valor > maior.valor) {
+      maior = d;
+    }
+  }
+
+  return maior;
 }

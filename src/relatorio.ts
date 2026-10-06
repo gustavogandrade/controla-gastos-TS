@@ -31,6 +31,7 @@ export function matrizCategoriaMes(despesas: Despesa[]): number[][] {
   // Preenche valores com laço tradicional
   for (let k = 0; k < despesas.length; k++) {
     const despesa = despesas[k];
+    if (!despesa) continue;
 
     let idxCategoria = -1;
     for (let c = 0; c < Categorias.length; c++) {
@@ -59,7 +60,11 @@ export function formatarRelatorio(despesas: Despesa[]): string {
   const matriz = matrizCategoriaMes(despesas);
 
   for (let i = 0; i < Categorias.length; i++) {
-    const nomeCategoria = descricaoCategoria(Categorias[i]);
+    const categoria = Categorias[i];
+    if (!categoria) continue;
+    const nomeCategoria = descricaoCategoria(categoria);
+    
+    
 
     let totalCategoria = 0;
     const linha = matriz[i];
